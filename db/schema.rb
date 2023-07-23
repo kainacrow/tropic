@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_175727) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "contract_owner_id"
-    t.bigint "supplier_id"
+    t.bigint "supplier_id", null: false
     t.index ["contract_owner_id"], name: "index_contracts_on_contract_owner_id"
     t.index ["external_contract_id"], name: "index_contracts_on_external_contract_id"
     t.index ["supplier_id"], name: "index_contracts_on_supplier_id"
@@ -45,5 +45,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_23_175727) do
   end
 
   add_foreign_key "contracts", "contract_owners"
-  add_foreign_key "contracts", "suppliers", column: "supplier_id"
+  add_foreign_key "contracts", "suppliers"
 end
