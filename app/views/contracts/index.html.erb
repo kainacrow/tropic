@@ -20,13 +20,12 @@
   <div class="table-row-group">
     <% @contracts.each do |contract| %>
       <div id=<%= dom_id(contract) %> class="table-row text-gray-600 text-sm">
-      <% debugger %>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= "#{contract.contract_owner.first_name} #{contract.contract_owner.last_name}" %></div>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.name %></div>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.start_date %></div>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.end_date %></div>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.value.format %></div>
-        <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.value.format %></div>
+        <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.supplier&.name %></div>
       </div>
     <% end %>
   </div>
