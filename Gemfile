@@ -19,6 +19,7 @@ gem "turbo-rails", "~> 1.4.0"
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 
 group :development, :test do
+  gem 'pry', '~> 0.13.1'
   gem "debug", platforms: %i[mri mingw x64_mingw]
 end
 
