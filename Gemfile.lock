@@ -147,7 +147,7 @@ GEM
     nokogiri (1.15.3-x86_64-darwin)
       racc (~> 1.4)
     pg (1.5.3)
-    pry (0.13.1)
+    pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (5.0.3)
@@ -267,7 +267,7 @@ DEPENDENCIES
   importmap-rails (~> 1.1.6)
   money-rails (~> 1.15)
   pg (~> 1.1)
-  pry (~> 0.13.1)
+  pry (~> 0.14.2)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)
   rails-controller-testing
