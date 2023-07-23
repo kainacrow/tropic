@@ -8,6 +8,7 @@ class Contract < ApplicationRecord
 
   # Associations
   belongs_to :contract_owner
+  belongs_to :supplier
 
   monetize :value_cents
 end
