@@ -1,0 +1,8 @@
+<div id="importModal" class="modal">
+  <div class="modal-content">
+    <%= form_with(url: contracts_import_create_path, local: true) do |form| %>
+      <%= form.file_field :csv_file %>
+      <%= form.submit "Import CSV" %>
+    <% end %>
+  </div>
+</div>
