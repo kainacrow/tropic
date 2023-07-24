@@ -8,6 +8,15 @@
 bob = ContractOwner.find_or_initialize_by(first_name: "Bob", last_name: "Smith", email: "bob.smith@example.com")
 john = ContractOwner.find_or_initialize_by(first_name: "John", last_name: "Doe", email: "john.doe@example.com")
 
+supplier_data = [
+    { name: "Message Corp."},
+    { name: "Message Corporation" },
+    { name: "Silicon Valley Payroll" },
+    { name: "Megasoftware International" }
+]
+
+Supplier.create(supplier_data)
+
 Contract.find_or_create_by!(
   external_contract_id: "488c9387-9563-48ea-8b20-42f32c78cf8e",
   name: "Company Messenger",
