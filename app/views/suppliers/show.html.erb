@@ -12,6 +12,12 @@
       <div class="table-cell"></div>
       <div class="table-cell"></div>
       <div class="table-cell"></div>
+      <% if @average_contract_value %>
+        <div class="table-cell text-lg p-4">
+          <div class="label">Average Contract Value</div>
+          <b><%= @average_contract_value %></b>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="table-header-group">
