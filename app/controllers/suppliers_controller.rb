@@ -1,6 +1,6 @@
 class SuppliersController < ApplicationController
   def show
-    @supplier = Supplier.find(params[:id])
+    @supplier = Supplier.includes(contracts: :contract_owner).find(params[:id])
     @contracts = @supplier.contracts
     @average_contract_value = calculate_average_contract_value(@contracts)
   end
