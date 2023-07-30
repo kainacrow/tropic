@@ -7,7 +7,7 @@
       <div class="table-cell"></div>
       <div class="table-cell"></div>
 
-      <%= link_to "Import Contracts", contracts_import_new_path, remote: true, class: "rounded-lg py-3 px-8 bg-blue-600 text-white block font-medium text-center import-contracts" %>
+      <%= link_to "Import Contracts", contracts_import_new_path, data: { turbo_frame: "modal" }, remote: true, class: "rounded-lg py-3 px-8 text-white block font-medium text-center import-contracts" %>
     </div>
   </div>
   <div class="table-header-group">
