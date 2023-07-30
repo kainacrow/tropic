@@ -18,8 +18,13 @@ class ContractsImportController < ApplicationController
   def import_csv(file)
     CSV.foreach(file.path, headers: true) do |row|
       contract_params = row.to_h
-      supplier = Supplier.find_or_create_by(name: contract_params["Supplier"])
-      contract_owner = ContractOwner.find_or_create_by(email: contract_params["Contract Owner"])
+
+      supplier_name = contract_params["Supplier"].strip
+      formatted_name = supplier_name.downcase.gsub(' ', '').gsub(',llc', '').gsub('llc', '')
+      supplier = Supplier.find_by("LOWER(REPLACE(name, ' ', '')) LIKE ?", "%#{formatted_name}%")
+
+      supplier ||= Supplier.new(name: contract_params["Supplier"])
+      contract_owner = ContractOwner.find_or_initialize_by(email: contract_params["Contract Owner"])
 
       contract = Contract.find_or_initialize_by(external_contract_id: contract_params["External Contract ID"])
 
