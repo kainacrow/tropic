@@ -1,0 +1,61 @@
+.modal {
+    position: fixed;
+    z-index: 1;
+    padding: 2em;
+
+    /* Centering */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    overflow: auto;
+    background-color: rgb(248 248 255);
+    border-radius: 5px;
+    /* Add the drop shadow */
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
+}
+
+.modal-button {
+    font-size: 12px;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    text-decoration: none;
+
+    &.import-csv-btn {
+        background-color: #6b63e8;
+        color: white;
+
+        &:hover {
+            background-color: #817be0;
+        }
+    }
+
+    &.cancel-button {
+        background-color: #ffffff;
+
+        &:hover{
+            background-color: #e5e2e2;
+        }
+    }
+}
+
+.button-container {
+    display: inline-block;
+    margin-right: 50px;
+    padding-top: 20px;
+}
+
+.import-btn-container {
+    margin-right: 0;
+}
+
+.modal-title {
+    font-size: x-large;
+}
+
+.modal-form{
+    padding-top: 20px;
+}

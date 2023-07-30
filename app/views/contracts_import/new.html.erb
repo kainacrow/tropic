@@ -1,8 +1,24 @@
-<div id="importModal" class="modal">
-  <div class="modal-content">
-    <%= form_with(url: contracts_import_create_path, local: true) do |form| %>
-      <%= form.file_field :csv_file %>
-      <%= form.submit "Import CSV" %>
-    <% end %>
+<turbo-frame id="modal">
+  <div class="modal">
+    <div class="modal-title"><b>Import Contracts</b></div>
+    <div class="modal-form">
+      <%= form_with(url: contracts_import_create_path, local: true) do |form| %>
+        <%= form.file_field :csv_file %>
+      <% end %>
+    </div>
+    <div class="pl-8">
+      <div class="button-container ">
+        <%= link_to "Cancel", "#", data: {
+          controller: "modals",
+          action: "modals#close"
+        }, class: "modal-button cancel-button" %>
+      </div>
+      <div class="button-container import-btn-container">
+        <%= link_to "Import CSV", "#", data: {
+          controller: "modals",
+          action: "submitForm"
+        }, class: "modal-button import-csv-btn" %>
+      </div>
+    </div>
   </div>
-</div>
+</turbo-frame>
