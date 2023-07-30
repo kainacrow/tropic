@@ -3,22 +3,17 @@ import { Controller } from "@hotwired/stimulus";
 // Connects to data-controller="modals"
 export default class extends Controller {
   connect() {}
-
-  // Handle the click event on the "Import CSV" link
-  submitForm(e) {modal
-    e.preventDefault();
-
-    const form = document.querySelector("#modal form");
-    if (form) {
-      form.submit();
-    }
-  }
-
-  // Handle the click event on the "Cancel" link
   close(e) {
+    // Prevent default action
     e.preventDefault();
+    // Remove from parent
+    const modal = document.getElementById("modal");
+    modal.innerHTML = "";
 
-    const modalFrame = document.getElementById("modal");
-    modalFrame.innerHTML = "";
+    // Remove the src attribute from the modal
+    modal.removeAttribute("src");
+
+    // Remove complete attribute
+    modal.removeAttribute("complete");
   }
 }
