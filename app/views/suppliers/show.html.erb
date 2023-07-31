@@ -1,19 +1,28 @@
-<div class="table table-auto w-full card-container">
-  <div class="table-header-group flex items-center justify-between">
-    <div class="table-row bg-white text-gray-800">
-      <div class="table-cell text-lg p-4 pl-8">Contracts</div>
-      <div class="table-cell"></div>
-      <div class="table-cell"></div>
-      <div class="table-cell"></div>
-      <div class="table-cell"></div>
+<%= link_to contracts_path, remote: true, class: "all-contracts font-medium" do %>
+  <%= content_tag :svg, xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 20 20", fill: "currentColor", class: "w-5 h-5 inline-block align-middle mr-2" do %>
+    <path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" />
+  <% end %>
+  All Contracts
+<% end %>
 
-      <%= link_to "Import Contracts", contracts_import_new_path, data: { turbo_frame: "modal" }, remote: true, class: "rounded-lg py-3 px-8 text-white block font-medium text-center import-contracts" %>
+<div class="table table-auto w-full card-container">
+  <div class="table-header-group">
+    <div class="table-row bg-white text-gray-800">
+      <div class="table-cell text-lg p-4"><%= @supplier.name %> Contracts</div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <div class="table-cell"></div>
+      <% if @average_contract_value %>
+        <div class="table-cell text-lg p-4">
+          <div class="label">Average Contract Value</div>
+          <b><%= @average_contract_value %></b>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="table-header-group">
     <div class="table-row bg-gray-50 text-gray-800 text-sm">
       <div class="table-cell border-t border-gray-300 p-4 pl-8">Contract Owner</div>
-      <div class="table-cell border-t border-gray-300 p-4 pl-8">Supplier</div>
       <div class="table-cell border-t border-gray-300 p-4 pl-8">Name</div>
       <div class="table-cell border-t border-gray-300 p-4 pl-8">Start Date</div>
       <div class="table-cell border-t border-gray-300 p-4 pl-8">End Date</div>
@@ -24,9 +33,6 @@
     <% @contracts.each do |contract| %>
       <div id="<%= dom_id(contract) %>" class="table-row text-gray-600 text-sm">
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= "#{contract.contract_owner.first_name} #{contract.contract_owner.last_name}" %></div>
-        <div class="table-cell border-t border-gray-300 p-4 pl-8">
-          <%= content_tag :div, link_to(contract.supplier&.name, supplier_path(contract.supplier)), class: "text-blue-600" %>
-        </div>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.name %></div>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.start_date %></div>
         <div class="table-cell border-t border-gray-300 p-4 pl-8"><%= contract.end_date %></div>

@@ -15,8 +15,8 @@
     <%= render partial: "layouts/nav" %>
 
     <main class="container mx-auto mt-28 px-5">
+      <%= turbo_frame_tag "modal" %>
       <%= render partial: "shared/flash_messages" %>
-
       <%= yield %>
     </main>
   </body>

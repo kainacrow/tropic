@@ -8,6 +8,9 @@ class Contract < ApplicationRecord
 
   # Associations
   belongs_to :contract_owner
+  belongs_to :supplier
+
+  validates :supplier, presence: true
 
   monetize :value_cents
 end
